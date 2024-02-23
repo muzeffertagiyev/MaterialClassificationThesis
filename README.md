@@ -1,6 +1,6 @@
 Certainly! Below is a template for your README.md file for your GitHub repository:
 
-```markdown
+
 # Material Classification App
 
 ![App Screenshot](/path/to/screenshot.png)
