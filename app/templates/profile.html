@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+
+{% block title %} - {{user.username.title()}}/Profile {% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pop-up.css')}}">
+{% endblock %}
+
+{% block content %}
+
+{% if request.endpoint == 'profile' %}
+  <body class="profile-section">
+{% else %}
+  <body>
+{% endif %}
+    <div class="container-fluid profile-content">
+      <div class="jumbotron text-center">
+        
+          <h1 class="display-4"> Profile </h1>
+      
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {%for category, message in messages%}
+                      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert" id="flash-message">
+                        <span>{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                    {% endfor %}
+                {% endif %}
+              {% endwith %}
+            
+          <hr class="my-4">
+              <h5>Username : {{user.username}} </h5>
+              <h5>Email : {{user.email}}</h5>
+              <a class="btn btn-warning btn-lg mr-2 mt-5" href="{{url_for('change_username',username=current_user.username)}}" role="button">Change Username</a>
+              <a class="btn btn-success btn-lg mr-2 mt-5" href="{{url_for('reset_password',username=current_user.username)}}" role="button">Reset Password</a>
+        
+      </div>
+    </div>
+    <div class="row">
+      {% if user_material_bar_chart_html %}
+          <div class="col-sm-6">
+              {{ user_material_bar_chart_html | safe }}
+          </div>
+          <div class="col-sm-6">
+              {{ user_material_line_chart_html | safe }}
+          </div>
+      {% endif %}
+    </div>
+
+  </body>
+
+{% endblock %}
+

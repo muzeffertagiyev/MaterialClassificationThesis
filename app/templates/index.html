@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+{% if request.endpoint == 'home' %}
+  <body class="home-section">
+{% else %}
+  <body>
+{% endif %}
+
+
+    </br>
+
+    <div class="container-fluid home-content">
+      <div class="jumbotron">
+        <h1>Classify Materials</h1>
+        <p>Web application for material classification using image processing and machine learning.</p>
+        <hr>
+        <div class="d-flex justify-content-center">
+          <a href="{{url_for('upload_image')}}" class="btn btn-success btn-lg" role="button
+          "> Upload A Picture </a>
+        </div>
+      </div>
+
+      <br>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert" id="flash-message">
+                        <span>{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                  {% endfor %}
+              {% endif %}
+            {% endwith %}
+      <br>
+      <div class="row">
+        {% if image_filename %}
+          <div class="col-sm-6">
+              <img src="{{ url_for('static', filename='uploaded_img/'+image_filename) }}" alt="Uploaded Image" class="rounded mx-auto d-block" style="max-width: 100%;  
+              height: auto; width:300px; height: 300px; ">
+          </div>
+          
+          <div class="col-sm-6">
+            <h2>Classification Result</h2>
+            <p>The uploaded image is classified as:</p>
+            <h3>{{ material.material }}</h3>
+          </div>
+        
+        {% endif %}
+      
+      </div>
+      <hr>
+    </div>
+
+    <div class="row">
+      
+      {% if material_bar_chart_html %}
+          <div class="col-sm-6">
+              {{ material_bar_chart_html | safe }}
+          </div>
+          <div class="col-sm-6">
+              {{ material_line_chart_html | safe }}
+          </div>
+      {% endif %}
+    </div>
+
+    
+    <script>
+      // Check if the page is being reloaded
+      if (performance.navigation.type === 0) {
+          // Page is being reloaded, send an AJAX request to delete the image
+          fetch("/delete-image", { method: "POST" })
+              .then(response => response.json())
+              // .then(data => {
+              //     console.log(data.message);
+              // });
+      }
+    </script>
+
+  </body>
+{% endblock %}

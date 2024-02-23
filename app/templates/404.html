@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}NOT FOUND{% endblock %}
+
+{% block content %}
+  <body style="margin: 0; padding: 0; min-height: 100vh; display: flex;  flex-direction: column;">
+    <div class="container" style="flex: 1;">
+    </br>
+      <h1 class="heading">Not Found Error - 404</h1>
+        <p class="description">Please make sure that you use correct url address</p>
+        <br>
+        <a href="{{url_for('home')}}" class="btn btn-primary">Go to Home Page </a>
+    </div>
+  </body>
+{% endblock %}

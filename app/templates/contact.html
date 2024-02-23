@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %} - Contact {% endblock %}
+
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact-form.css')}}">
+{% endblock %}
+
+{% block content %} 
+
+{% if request.endpoint == 'contact' %}
+  <body class="contact-section">
+{% else %}
+  <body>
+{% endif %}
+
+    <section class="section gray-bg contact-content" id="contactus">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="section-title">
+                      <h2>Get In Touch</h2>
+                      <p>If you encounter any issues, please do not hesitate to reach out to us. For any problems related to material classification or if you find any inaccuracies, kindly send us images or related files of the materials where the classification may not be functioning correctly. Your feedback is valuable in helping us improve our service.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="row flex-row-reverse">
+              <div class="col-md-7 col-lg-8 m-15px-tb">
+                  <div class="contact-form">
+                       <form action="{{url_for('contact')}}" method="POST" class="contactform contact_form" id="contact_form" enctype="multipart/form-data">
+                        {{ form.csrf_token }}   
+
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert" id="flash-message">
+                                        <span>{{ message }}</span>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+ 
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      {{form.name(class='form-control',id='name', placeholder='Name')}}
+                                  </div>
+
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      {{form.email(class='form-control',id='email', placeholder='Email Address')}}
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                    {{form.subject(class='form-control',id='subject', placeholder='Subject')}}
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                      {{form.message(class='form-control',id='message', placeholder='Message',rows='3')}}
+                                  </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="form-group d-flex">
+                                    <small class="form-text text-muted mr-3 mt-4">Optional</small>
+                                    {{ form.files(id='file',class='contact-file')}}
+                                    
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                  <div class="send">
+                                      <button id="send_message" class="px-btn theme" type="submit"><span>Contact Us</span> <i class="arrow"></i></button>
+                                  </div>
+                                  <hr>
+                              </div>
+                              
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-md-5 col-lg-4 m-15px-tb">
+                  <div class="contact-name">
+                      <h5>E-Mail</h5>
+                      <p>muzaffar.taghiyev@gmail.com</p>
+                  </div>
+                  <div class="contact-name">
+                      <h5>Address</h5>
+                      <p>Warsaw, Poland</p>
+                  </div>
+                  <div class="contact-name">
+                      <h5>Phone</h5>
+                      <p>+48 45 237 59 62</p>
+                  </div>
+
+                  <div class="social-share nav">
+                    <a class="dribbble" href="#" target="_blank" data-toggle="tooltip" data-bs-placement="top" title="Portfolio">
+                      <i class="fa fa-globe"></i>
+                    </a>
+
+                    <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/muzaffar-taghiyev/" data-toggle="tooltip" data-bs-placement="top" title="Linkedin">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    
+                    <a class="behance" href="https://github.com/muzeffertagiyev" target="_blank" data-toggle="tooltip" data-bs-placement="top" title="Github">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+  </body>
+
+{% endblock %}

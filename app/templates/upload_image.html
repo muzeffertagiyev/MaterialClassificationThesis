@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} - Upload Image {% endblock %}
+
+{% block content %} 
+
+{% if request.endpoint == 'upload_image' %}
+  <body class="upload-section">
+{% else %}
+  <body>
+{% endif %}
+    <div class="container upload-content" >
+        <div class="row">
+            <div class="col">
+                <h1>Upload Image</h1>
+                <p>Please make sure that your picture contains one object,white background and not blurred</p>
+                <hr>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                                <span>{{ message }}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+            
+                <form action="{{url_for('upload_image')}}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" name="image" id="image" class="custom-file-input" onchange="handleFileSelect()">
+                                <label id="upload-message" for="image" class="custom-file-label">Select Image ...</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Upload</button>
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+    <br><br>
+
+    <script src="{{url_for('static',filename='js/filename.js')}}"></script>
+
+  </body>
+{% endblock %}
+
+

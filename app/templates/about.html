@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} - About {% endblock %}
+
+
+{% block content %} 
+
+
+{% if request.endpoint == 'about' %}
+  <body class="about-section">
+{% else %}
+  <body>
+{% endif %}
+    <div class="container about-content" >
+        <div class="row">
+          <div class="col-md-12 col-lg-6">
+            <h2>About The Project</h2>
+            <hr>
+            <p class="lead">Welcome to the Material Recognition Project! This project is dedicated to making material recognition accessible and user-friendly through innovative technology.</p>
+            <p class="lead">The web application allows users to upload images, and using advanced image processing and machine learning, it identifies materials in those images, such as fabric, glass, leather, metal, plastic and paper.</p>
+            <p class="lead">With a strong passion for technology and a commitment to improving material recognition, we're excited to continue developing and enhancing this project to meet your material recognition needs.</p>
+
+            <a class="btn btn-primary mt-5 btn-lg btn-block" href="{{url_for('contact')}}" role="button">Contact Us</a>
+            
+          </div>
+          <div class="col-md-12 col-lg-6 mt-5">
+            <img src="{{url_for('static', filename='img/about-img.jpg')}}" alt="Team Photo" class="img-fluid rounded-circle">
+          </div>
+        </div>       
+    </div>
+    <br><br>
+  </body>
+
+{% endblock %}
