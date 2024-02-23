@@ -49,8 +49,11 @@ python run.py
 
 ## Screenshots
 
-![Screenshot 1](/path/to/screenshot1.png)
-![Screenshot 2](/path/to/screenshot2.png)
+![Screen Shot 2024-02-23 at 15 21 40](https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/fa898d97-b0fe-48f8-9d77-778ffec39f84)
+![Screen Shot 2024-02-23 at 15 21 57](https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/6e4e5c82-e5cb-4f6a-b007-86a78ba2c117)
+![Screen Shot 2024-02-23 at 15 21 50](https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/b0d6c6ee-fb4c-413b-ab38-82fa7c8c14dd)
+![Screen Shot 2024-02-23 at 15 20 58](https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/53c5beca-2521-4fe5-b40f-f869ff452964)
+
 ...
 
 ## Demo
