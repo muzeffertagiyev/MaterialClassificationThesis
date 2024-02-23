@@ -10,6 +10,15 @@ Certainly! Below is a template for your README.md file for your GitHub repositor
 
 This is a Flask web application that classifies materials from images using machine learning techniques. It allows users to upload images, which are then processed using a pre-trained model to predict the material present in the image. Users can also register, log in, view their profile, change their username, reset their password, and contact the admin.
 
+## Demo
+
+### You can view a demo of the application 
+
+
+
+https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/b54eec96-88bd-45ce-a09c-29fdcf52c92f
+
+
 ## Features
 
 - User Registration and Authentication
@@ -60,13 +69,6 @@ python run.py
 
 ...
 
-## Demo
-
-### You can view a demo of the application 
-
-
-
-https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/b54eec96-88bd-45ce-a09c-29fdcf52c92f
 
 
 
