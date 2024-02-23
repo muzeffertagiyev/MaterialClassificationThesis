@@ -2,8 +2,8 @@ Certainly! Below is a template for your README.md file for your GitHub repositor
 
 
 # Material Classification App
+![Screen Shot 2024-02-23 at 15 19 12](https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/4275a7b3-8303-475b-a3c3-33bf8d79ed94)
 
-![App Screenshot](/path/to/screenshot.png)
 
 ## Description
 
