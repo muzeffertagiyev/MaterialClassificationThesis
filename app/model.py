@@ -4,7 +4,7 @@ import pathlib
 import numpy as np
 
 # Directory containing the dataset
-data_dir = pathlib.Path('/Users/muzeffertagiyev/Desktop/last_thesis_app/images_data/image_dataset')
+data_dir = pathlib.Path('/kaggle/input/images-dataset/image')
 
 # Image parameters
 batch_size = 32
