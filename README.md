@@ -62,7 +62,11 @@ python run.py
 
 ## Demo
 
-You can view a demo of the application 
+### You can view a demo of the application 
+
+
+
+https://github.com/muzeffertagiyev/MaterialClassificationThesis/assets/75939608/b54eec96-88bd-45ce-a09c-29fdcf52c92f
 
 
 
